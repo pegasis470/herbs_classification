@@ -84,6 +84,12 @@
     text-decoration: none;
     font-size: 2vw;
   }
+   form input{
+    width: 10vw;
+    left: 35%;
+    position: relative;
+
+   }
 </style>
 <body>
      <div id="main">
@@ -119,7 +125,9 @@
             <img style="width: 350px;" class="after_capture_frame" src="/images/uploads/def.png" />
           </div>
           <br>
-          <button type="button" class="btn btn-success" onclick="sendImage()">upload image</button>
+          <form action="">
+            <input type="button" name="file" class="btn btn-success" onclick="sendImage()" value="upload">
+          </form>
         </div>
       </div>
     </div>
