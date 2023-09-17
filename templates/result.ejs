@@ -1,11 +1,180 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>success</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: gilroy;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    #main{
+        width: 100%;
+        height: 100%;
+    }
+    #nav {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    color: white;
+    background: linear-gradient(to left,rgb(62, 41, 5), rgb(5, 42, 5));
+
+  }
+  
+  #nav #logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #logo img {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #links a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 450;
+  }
+  #links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #links a:hover {
+    border: 3px solid white;
+  }
+  
+  #result{
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 50%;
+    border: 2px solid white;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    color: white;
+  }
+  #img{
+    width: 20vw;
+    height: 15vw;
+    background-image: url(https://images.unsplash.com/photo-1562957429-ff708ca20e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1886&q=80);
+    background-size: cover;
+    background-position: bottom;
+  }
+  #type{
+    font-size: 1.9vw;
+    font-weight: 500;
+  }
+  #data{
+    font-size: 1.3vw;
+  }
+  #box {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+
+  #box #left {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    background-color: cadetblue;
+    background-image: url(/images/A1gKhRJJ5JL.jpg);
+    background-size: cover;
+  }
+
+  #col {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.307);
+  }
+
+  #box #right {
+    height: 100%;
+    position: relative;
+    width: 50%;
+    background-size: cover;
+    background-image: url(/images/Feat-Image_1100x1100.jpg);
+    background-color: burlywood;
+  }
+
+  #colo {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.327);
+  }
+
+</style>
 <body>
-	<p>File uploaded successfully</p>
-	<p>Plant type: {{result}}</p>
-	<p>{{data}}</p>
+    <div id="main">
+      <div id="nav">
+        <div id="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdZ-FJxbbwwDBlwEywJoV4Rvmc51VOkv6M1A&usqp=CAU"alt="">
+          <h4>herbs classification</h4>
+        </div>
+        <div id="links">
+          <a href="">Home</a>
+          <a href="">About us</a>
+          <a href="">Details</a>
+          <a href="">Our blog</a>
+          <a href="">Contact</a>
+        </div>
+      </div>
+
+      <div id="result">
+        <div id="img"></div>
+
+        <p id="msg">File uploaded successfully</p>
+        <p id="type">Plant type: {{result}}</p>
+        <p id="data">{{data}}</p>
+
+      </div>
+
+      <div id="box">
+        <div id="left">
+          <div id="col"></div>
+        </div>
+
+        <div id="right">
+          <div id="colo"></div>
+        </div>
+      </div>
+</div>
+
+
 </body>
 </html>
-
