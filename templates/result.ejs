@@ -21,7 +21,7 @@
         height: 100%;
     }
     #nav {
-    position: relative;
+    position: fixed;
     width: 100%;
     height: 10%;
     align-items: center;
@@ -33,7 +33,8 @@
     padding-bottom: 20px;
     color: white;
     background: linear-gradient(to left,rgb(62, 41, 5), rgb(5, 42, 5));
-
+    z-index: 99999;
+    margin-bottom: 30px;
   }
   
   #nav #logo {
@@ -70,22 +71,25 @@
   }
   
   #result{
-    position: absolute;
+    position: relative;
     z-index: 99;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    left: 15%;
+    top: 20%;
+    /* left: 50%;
+    top: 60%; */
+    /* transform: translate(-50%,-50%); */
     padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    width: 50%;
+    width: 70%;
     border: 2px solid white;
     text-align: center;
     backdrop-filter: blur(10px);
     color: white;
+    /* margin-top: 30vh; */
   }
   #img{
     width: 20vw;
@@ -102,10 +106,12 @@
     font-size: 1.3vw;
   }
   #box {
-    height: 90%;
+    height: 100%;
     width: 100%;
     display: flex;
-    position: relative;
+    position: fixed;
+    top: 0%;
+
   }
 
   #box #left {
@@ -114,6 +120,7 @@
     width: 50%;
     background-image: url(https://m.media-amazon.com/images/I/A1gKhRJJ5JL.jpg);
     background-size: cover;
+    
   }
 
   #col {
@@ -135,6 +142,9 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.327);
   }
+  h4{
+    font-size: 1.4vw;
+  }
 
 </style>
 <body>
@@ -152,16 +162,6 @@
           <a href="">Contact</a>
         </div>
       </div>
-
-      <div id="result">
-        <div id="img"></div>
-
-        <p id="msg">File uploaded successfully</p>
-        <p id="type">Plant type: {{result}}</p>
-        <p id="data">{{data}}</p>
-
-      </div>
-
       <div id="box">
         <div id="left">
           <div id="col"></div>
@@ -171,7 +171,26 @@
           <div id="colo"></div>
         </div>
       </div>
-</div>
+
+      <div id="result">
+        <!-- <div id="img"></div> -->
+
+        <p id="msg">File uploaded successfully</p>
+        <p id="type">Plant type: {{result}}</p>
+        <br>
+        <h4>{{q1}}</h4>
+        <br>
+        <h4>{{q2}}</h4>
+        <br>
+        <h4>{{q3}}</h4>
+        <br>
+        <h4>{{q4}}</h4>
+
+      </div>
+
+      
+    </div>
+
 
 
 </body>
