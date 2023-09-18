@@ -71,27 +71,47 @@
     position: relative;
     /* z-index: 99999; */
     width: 100%;
-    height: 10%;
+    height: 15%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     display: flex;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 50px;
-    padding-bottom: 20px;
+    padding: 20px 30px;
     background: linear-gradient(to left,rgb(62, 41, 5), rgb(5, 42, 5));
 
   }
+  
+  #nav #logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+  }
 
-  #nav a {
+  #logo img {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #links a {
     text-decoration: none;
     padding: 10px;
     color: white;
     font-size: 20px;
     font-weight: 450;
+    /* background-color: antiquewhite; */
+  }
+  #links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* background-color: aqua; */
   }
 
-  #nav a:hover {
+  #links a:hover {
     border: 3px solid white;
   }
 
@@ -104,6 +124,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 99;
+    font-size: 1.4vw;
   }
 
   #main #herb {
@@ -232,14 +253,21 @@
 <body>
   <div id="main">
       <div id="nav">
-        <a href="">Home</a>
-        <a href="">About us</a>
-        <a href="">Details</a>
-        <a href="">Our blog</a>
-        <a href="">Contact</a>
+        <div id="logo">
+          <img src="https://github.com/pegasis470/herbs_classification/blob/main/logo3.png?raw=true"alt="">
+          <h2>herbs classification</h2>
+        </div>
+        <div id="links">
+          <a href="">Home</a>
+          <a href="">About us</a>
+          <a href="">Details</a>
+          <a href="">Our blog</a>
+          <a href="">Contact</a>
+
+        </div>
       </div>
 
-      <h6>AGRICULTURE COMPANT</h6>
+      <h6>KERAS CREW</h6>
 
       <h1 id="herb">HERBS</h1>
       <div id="square">
