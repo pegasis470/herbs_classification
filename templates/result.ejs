@@ -91,9 +91,6 @@
   #img{
     width: 20vw;
     height: 15vw;
-    background-image: url(https://images.unsplash.com/photo-1562957429-ff708ca20e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1886&q=80);
-    background-size: cover;
-    background-position: bottom;
   }
   #type{
     font-size: 1.9vw;
@@ -170,7 +167,9 @@
       </div>
 
       <div id="result">
-        <!-- <div id="img"></div> -->
+         <div id="img">
+          <img src="{{img}}" alt="">
+        </div>
 
         <p id="msg">File uploaded successfully</p>
         <p id="type">Plant type: {{result}}</p>
