@@ -7,11 +7,11 @@ import cv2
 import os
 import numpy as np
 from sklearn.model_selection import train_test_split
-
+import random
 folders=os.listdir('Herb')
 
 
-def Augment_data(img_path,Aug_dir):
+def PrimaryAugment(img_path,Aug_dir):
     aug_img=[]
     image=Image.open(img_path)
     image=image.resize((400,400))
@@ -29,16 +29,26 @@ def Augment_data(img_path,Aug_dir):
         plt.imsave(f'{Aug_dir}/{img_path.split("/")[-1]}{i}.jpg',aug_img[i])
 
 
+def SecondaryAugment(img_path,Aug_dir):
+    image=Image.open(img_path)
+    for i in range(6):
+        theta=random.randint(90,359)
+        new_image = image.rotate(theta)
+        new_image=np.array(new_image)
+        plt.imsave(f'{Aug_dir}/{img_path.split("/")[-1]}{i}.jpg',new_image)
 
 def AUG():
     os.mkdir('Aug_data')
-    for i in folders:
-        os.mkdir(f'Aug_data/{i}')
-    for i in folders:
+    os.mkdir('new_Aug_data')
+    for i in folders:  
+        os.mkdir(f'Aug_data/{i}')              
+        os.mkdir(f'new_Aug_data/{i}')
         files=os.listdir(f'Herb/{i}')
         for j in files:
-            Augment_data(f'Herb/{i}/{j}',f'Aug_data/{i}')
-    
+            PrimaryAugment(f'Herb/{i}/{j}',f'Aug_data/{i}')
+            SecondaryAugment(f'Herb/{i}/{j}',f'new_Aug_data/{i}')  
+
+
 
 def Train_test_split():
     os.mkdir('train')
@@ -49,12 +59,12 @@ def Train_test_split():
         os.mkdir(f'test/{i}')
         os.mkdir(f'validation/{i}')
     for i in folders:
-        all_files=os.listdir(f'Aug_data/{i}')
+        all_files=os.listdir(f'new_Aug_data/{i}')
         Train_files,Test_files=train_test_split(all_files,test_size=0.2)
         Train_files,val_files=train_test_split(Train_files,test_size=0.1)
         for j in val_files:
-            shutil.copy(f'Aug_data/{i}/{j}',f'validation/{i}')
+            shutil.copy(f'new_Aug_data/{i}/{j}',f'validation/{i}')
         for j in Train_files:
-            shutil.copy(f'Aug_data/{i}/{j}',f'train/{i}')
+            shutil.copy(f'new_Aug_data/{i}/{j}',f'train/{i}')
         for j in Test_files:
-            shutil.copy(f'Aug_data/{i}/{j}',f'test/{i}')
+            shutil.copy(f'new_Aug_data/{i}/{j}',f'test/{i}')
