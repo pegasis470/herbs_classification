@@ -4,17 +4,27 @@ import tensorflow as tf
 import keras
 from PIL import Image
 import PIL
-import numpy as np
+import pandas as pd
 import keras.utils as image
 from flask import *
 import wikipedia
 import os
+import shutil
 app=Flask(__name__)
 
 def find(query):
+    df=pd.read_excel('Result_Data.xlsx')
     print(query)
-    web_data=wikipedia.summary(query,auto_suggest=False,sentences=13)
-    return web_data
+    inx=int(df.index[df['Plant Name']==query][0])
+    print(inx)
+    row=df[inx:inx+1]
+    d0= row.values.tolist()[0][0]
+    d1= row.values.tolist()[0][1]
+    d2= row.values.tolist()[0][2]
+    d3= row.values.tolist()[0][3]
+    d4= row.values.tolist()[0][4]
+    return d0,d1,d2,d3,d4
+    
 def Predict(image_path):
     classes=[
     "Papaya",
@@ -27,6 +37,7 @@ def Predict(image_path):
     "Celery",
     "Bilimbi",
     "Screwpine"]
+    classes.sort()
     model=keras.models.load_model("Herbs_classifier.keras")
     img=image.load_img(image_path,target_size=(150,150,3))
     img=image.img_to_array(img)
@@ -44,10 +55,11 @@ def Predict(image_path):
     else:
         result='unknown'
     if result != 'unknown':
-        info=find(result)
-        return result,info
+        _,q1,q2,q3,q4=find(result)
+        return result,q1,q2,q3,q4
     else:    
-        return result,''
+        return result,""
+
 
 @app.route('/')
 def home():
@@ -55,6 +67,7 @@ def home():
 @app.route('/camera')
 def Cam():
     return render_template('camera.ejs')
+
 @app.route('/result',methods=['POST'])
 def result():
     if request.method == 'POST':
@@ -64,6 +77,7 @@ def result():
         shutil.copy(f'{file.filename}','static/input.jpg')
         print(file.filename)
         return render_template("result.ejs",result=result,q1=q1,q2=q2,q3=q3,q4=q4)
+
 if __name__=='__main__':
     app.run(debug=True)
     app.config['TEMPLATiES_AUTO_RELOAD']=True
