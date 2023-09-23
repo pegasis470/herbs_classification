@@ -75,7 +75,7 @@ def result():
         file.save(file.filename)
         result,q1,q2,q3,q4=Predict(file.filename)
         shutil.copy(f'{file.filename}','static/input.jpg')
-        print(file.filename)
+        os.remove(file.filename)
         return render_template("result.ejs",result=result,q1=q1,q2=q2,q3=q3,q4=q4)
 
 if __name__=='__main__':
