@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<style>
+  * {
+    font-family: "gilroy";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html,body {
+    width: 100%;
+    height: 100%;
+  }
+
+  #main {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    background-color: black;
+    color: white;
+  }
+
+  #main #box {
+    height: 100%;
+    width: 100%;
+    /* background-color: rgb(158, 73, 73); */
+    display: flex;
+    position: relative;
+  }
+
+  #box #left {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    background-image: url({{url_for('static',filename='left.jpg')}}); 
+   background-size: cover;
+    background-position-y: bottom;
+  }
+
+  #col {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.253);
+  }
+
+  #box #right {
+    height: 100%;
+    position: relative;
+    width: 50%;
+    background-size: cover;
+    background-image: url({{url_for('static',filename='right.jpg')}});
+    background-position-y: 50%;
+  }
+
+  #colo {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.327);
+  }
+
+  #nav {
+    /* position: absolute; */
+    position: relative;
+    /* z-index: 99999; */
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 20px 30px;
+    background: linear-gradient(to left,rgb(62, 41, 5), rgb(5, 42, 5));
+
+  }
+  
+  #nav #logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+  }
+
+  #logo img {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #links a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 450;
+    /* background-color: antiquewhite; */
+  }
+  #links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* background-color: aqua; */
+  }
+
+  #links a:hover {
+    border: 3px solid white;
+  }
+
+  #main h6 {
+    width: 100%;
+    position: absolute;
+    letter-spacing: 30px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 99;
+    font-size: 1.4vw;
+  }
+
+  #main #herb {
+    position: absolute;
+    font-size: 100px;
+    letter-spacing: 25px;
+    top: 30%;
+    left: 50%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+  }
+
+  #square {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 20px;
+    z-index: 99;
+    border: 2px solid rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+    color: rgb(255, 255, 255);
+  }
+
+  #square h1 {
+    font-size: 1.7vw;
+
+
+  }
+
+  #num {
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 50%;
+    font-size: 60px;
+    z-index: 99;
+  }
+
+  #num h2:nth-child(2) {
+    opacity: .3;
+  }
+
+  #num h2:nth-child(3) {
+    opacity: .3;
+  }
+
+
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  form input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 30vw;
+    color: black;
+  }
+
+
+  form input[type=file] {
+    /* border: 1px solid black; */
+    font-size: 1.3vw;
+    color: white;
+    background-color: transparent;
+  }
+
+  input::file-selector-button {
+    font-size: 1.4vw;
+    padding: 10px;
+    /* font-weight: 550; */
+    border: thin solid grey;
+    border-radius: 40px;
+    margin-right: 10px;
+    background-color: rgb(162, 156, 156);
+
+  }
+
+  form input[type=submit] {
+    background-color: rgb(72, 184, 69);
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5vw;
+  }
+
+  #capture {
+    font-size: 1.5vw;
+  }
+
+  #cam {
+    text-decoration: none;
+    font-size: 2vw;
+    color: red;
+  }
+
+  #dabba {
+    width: 300px;
+    height: 30vh;
+    left: 20%;
+    position: relative;
+    overflow: hidden;
+    display: none;
+  }
+
+  #output {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+</style>
+
+<body>
+  <div id="main">
+      <div id="nav">
+        <div id="logo">
+          <img src="{{url_for('static',filename='logo.png')}}"alt="">
+          <h2>herbs classification</h2>
+        </div>
+        <div id="links">
+          <a href="">Home</a>
+          <a href="">About us</a>
+          <a href="">Details</a>
+          <a href="">Our blog</a>
+          <a href="">Contact</a>
+
+        </div>
+      </div>
+
+      <h6>KERAS CREW</h6>
+
+      <h1 id="herb">HERBS</h1>
+      <div id="square">
+         <h1>Upload your image here👇</h1>
+        <form action="/result" id="uploadpic" method="post" enctype="multipart/form-data">
+          <input type="file" name="file" id="fileinp" accept="image/*" onchange="loadFile(event)">
+          <input type="submit" value="upload">
+        </form>
+        <div id="dabba">
+          <img id="output" src="input.jpg" alt="">
+        </div>
+        <h4 id="capture">or capture image 👉 <a id="cam" href="/camera"><i class="ri-camera-line"></i></a></h4>
+      </div>
+
+      <div id="num">
+        <h2>01/</h2>
+        <h2>02/</h2>
+        <h2>03/</h2>
+      </div>
+      <div id="box">
+        <div id="left">
+          <div id="col">
+
+          </div>
+        </div>
+
+        <div id="right">
+          <div id="colo">
+
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+
+
+
+  <script>
+
+    document.querySelector("#fileinp")
+      .addEventListener("change", function () {
+        document.querySelector("#dabba").style.display = "block"
+      })
+
+
+    var loadFile = function (event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function () {
+        URL.revokeObjectURL(output.src) // free memory
+      }
+    };
+
+
+  </script>
+</body>
+
+</html>

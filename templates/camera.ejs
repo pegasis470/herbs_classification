@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    font-family: "gilroy";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* #nav {
+    height: 15vh;
+    width: 100%;
+    background-color: rgb(165, 228, 208);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+  }
+
+  #nav #icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #icon img {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #mid {
+    display: flex;
+    gap: 50px;
+    position: relative;
+    left: -5vw;
+  }
+
+  #mid a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.4vw;
+  }
+
+  #last i {
+    font-size: 2vw;
+  }
+
+  i:hover {
+    cursor: pointer;
+  } */
+
+  #main {
+    width: 100vw;
+    height: 100vh;
+  }
+  #nav {
+    position: relative;
+    width: 100%;
+    height: 14%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 20px 30px;
+    color: white;
+    background: linear-gradient(to left,rgb(62, 41, 5), rgb(5, 42, 5));
+    z-index: 99999;
+    margin-bottom: 30px;
+  }
+  
+  #nav #logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #logo img {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  #links a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 450;
+  }
+  #links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #links a:hover {
+    border: 3px solid white;
+  }
+  
+
+
+  #capture {
+    font-size: 1.5vw;
+  }
+
+  #cam {
+    text-decoration: none;
+    font-size: 2vw;
+  }
+   form input{
+    width: 10vw;
+    left: 35%;
+    position: relative;
+
+   }
+</style>
+
+<body>
+  <div id="main">
+    <div id="nav">
+      <div id="logo">
+        <img src="{{url_for('static',filename='logo.png')}}"alt="">
+        <h4>herbs classification</h4>
+      </div>
+      <div id="links">
+        <a href="">Home</a>
+        <a href="">About us</a>
+        <a href="">Details</a>
+        <a href="">Our blog</a>
+        <a href="">Contact</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" align="center">
+          <label>Capture live photo</label>
+          <div id="my_camera" class="pre_capture_frame"></div>
+          <input type="hidden" name="captured_image_data" id="captured_image_data">
+          <br>
+          <input type="button" class="btn btn-info btn-round btn-file" value="Take Snapshot" onClick="take_snapshot()">
+        </div>
+        <div class="col-lg-6" align="center">
+          <label>Result</label>
+          <div id="results">
+            <img style="width: 350px;" class="after_capture_frame" src="" />
+          </div>
+          <br>
+          <button type="button" class="btn btn-success" onclick="sendImage()">upload image</button>
+        </div>
+      </div><!--  end row -->
+    </div><!-- end container -->
+
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.24/webcam.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+    integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script language="JavaScript">
+    // Configure a few settings and attach camera 250x187
+    Webcam.set({
+      width: 350,
+      height: 287,
+      image_format: 'jpeg',
+      jpeg_quality: 90
+    });
+    Webcam.attach('#my_camera');
+
+    var image_dataUri
+
+    function take_snapshot() {
+      // play sound effect
+      //shutter.play();
+      // take snapshot and get image data
+      Webcam.snap(function (data_uri) {
+        image_dataUri = data_uri
+        // display results in page
+        document.getElementById('results').innerHTML =
+          '<img class="after_capture_frame" src="' + data_uri + '"/>';
+        $("#captured_image_data").val(data_uri);
+      });
+    }
+
+    function saveSnap() {
+      var base64data = $("#captured_image_data").val();
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "capture_image_upload.php",
+        data: { image: base64data },
+        success: function (data) {
+          alert(data);
+        }
+      });
+    }
+
+    async function sendImage() {
+      await axios.post('/uploadIMage', {
+        image: image_dataUri
+      })
+      console.log('image uploaded')
+    }
+
+
+  </script>
+
+</body>
+
+</html>

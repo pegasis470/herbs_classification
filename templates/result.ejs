@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: gilroy;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    #main{
+        width: 100%;
+        height: 100%;
+    }
+    #nav {
+    position: relative;
+    width: 100%;
+    height: 14%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 20px 30px;
+    color: white;
+    background: linear-gradient(to left,rgb(62, 41, 5), rgb(5, 42, 5));
+    z-index: 99999;
+    margin-bottom: 30px;
+  }
+  
+  #nav #logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #logo img {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #links a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 450;
+  }
+  #links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #links a:hover {
+    border: 3px solid white;
+  }
+  
+  #result{
+    position: relative;
+    z-index: 99;
+    left: 15%;
+    top: 10%;
+    /* left: 50%;
+    top: 60%; */
+    /* transform: translate(-50%,-50%); */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 70%;
+    border: 2px solid white;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    color: white;
+    /* margin-top: 30vh; */
+  }
+  #img{
+    width: 20vw;
+    height: 15vw;
+    overflow: hidden;
+    position: relative;
+  }
+  #img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #type{
+    font-size: 1.9vw;
+    font-weight: 500;
+  }
+  #data{
+    font-size: 1.3vw;
+  }
+  #box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0%;
+
+  }
+
+  #box #left {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    background-image: url({{url_for('static',filename='left.jpg')}});
+    background-size: cover;
+    
+  }
+
+  #col {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.307);
+  }
+
+  #box #right {
+    height: 100%;
+    position: relative;
+    width: 50%;
+    background-size: cover;
+    background-image: url({{url_for('static',filename='right.jpg')}});
+  }
+
+  #colo {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.327);
+  }
+  h4{
+    font-size: 1.4vw;
+  }
+
+</style>
+<body>
+    <div id="main">
+      <div id="nav">
+        <div id="logo">
+          <img src="{{url_for('static',filename='logo.png')}}"alt="">
+          <h4>herbs classification</h4>
+        </div>
+        <div id="links">
+          <a href="">Home</a>
+          <a href="">About us</a>
+          <a href="">Details</a>
+          <a href="">Our blog</a>
+          <a href="">Contact</a>
+        </div>
+      </div>
+      <div id="box">
+        <div id="left">
+          <div id="col"></div>
+        </div>
+
+        <div id="right">
+          <div id="colo"></div>
+        </div>
+      </div>
+
+      <div id="result">
+         <div id="img">
+          <img src="{{url_for('static',filename='input.jpg')}}" alt="">
+        </div>
+
+        <p id="msg">File uploaded successfully</p>
+        <p id="type">Plant type: {{result}}</p>
+        <br>
+        <h4>{{q1}}</h4>
+        <br>
+        <h4>{{q2}}</h4>
+        <br>
+        <h4>{{q3}}</h4>
+        <br>
+        <h4>{{q4}}</h4>
+
+      </div>
+
+      
+    </div>
+
+
+
+</body>
+</html>
