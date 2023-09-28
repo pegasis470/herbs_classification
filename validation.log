@@ -1,0 +1,12 @@
+2023-09-28 12:40:02.461023: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-09-28 12:40:02.498434: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-09-28 12:40:02.498782: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-09-28 12:40:03.175889: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:absl:Skipping variable loading for optimizer 'Adam', because it has 1 variables whereas the saved optimizer has 29 variables. 
+Found 1960 images belonging to 10 classes.
+196/196 [==============================] - 40s 201ms/step - loss: 0.3607 - acc: 0.9005
+Accuracy: 90.05%
+196/196 [==============================] - 47s 238ms/step
+Accuracy: 9.29%
+

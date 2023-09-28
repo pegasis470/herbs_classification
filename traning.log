@@ -1,0 +1,72 @@
+2023-09-27 22:04:26.722804: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-09-27 22:04:26.758823: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-09-27 22:04:26.759171: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-09-27 22:04:27.431772: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Found 17640 images belonging to 10 classes.
+Found 4900 images belonging to 10 classes.
+Epoch 1/100
+250/250 [==============================] - 338s 1s/step - loss: 2.1159 - acc: 0.2036 - val_loss: 1.7951 - val_acc: 0.3414
+Epoch 2/100
+250/250 [==============================] - 339s 1s/step - loss: 1.5735 - acc: 0.4068 - val_loss: 1.3165 - val_acc: 0.5253
+Epoch 3/100
+250/250 [==============================] - 334s 1s/step - loss: 1.1481 - acc: 0.5680 - val_loss: 1.1296 - val_acc: 0.6084
+Epoch 4/100
+250/250 [==============================] - 339s 1s/step - loss: 0.9378 - acc: 0.6444 - val_loss: 0.8701 - val_acc: 0.6835
+Epoch 5/100
+250/250 [==============================] - 340s 1s/step - loss: 0.7884 - acc: 0.7132 - val_loss: 0.8527 - val_acc: 0.6951
+Epoch 6/100
+250/250 [==============================] - 342s 1s/step - loss: 0.7448 - acc: 0.7308 - val_loss: 0.7446 - val_acc: 0.7306
+Epoch 7/100
+250/250 [==============================] - 278s 1s/step - loss: 0.6837 - acc: 0.7500 - val_loss: 0.7122 - val_acc: 0.7486
+Epoch 8/100
+250/250 [==============================] - 279s 1s/step - loss: 0.5886 - acc: 0.7788 - val_loss: 0.6212 - val_acc: 0.7978
+Epoch 9/100
+250/250 [==============================] - 276s 1s/step - loss: 0.5265 - acc: 0.8140 - val_loss: 0.6273 - val_acc: 0.7843
+Epoch 10/100
+250/250 [==============================] - 271s 1s/step - loss: 0.5437 - acc: 0.8100 - val_loss: 0.5732 - val_acc: 0.8122
+Epoch 11/100
+250/250 [==============================] - 271s 1s/step - loss: 0.5006 - acc: 0.8268 - val_loss: 0.5304 - val_acc: 0.8239
+Epoch 12/100
+250/250 [==============================] - 276s 1s/step - loss: 0.4375 - acc: 0.8492 - val_loss: 0.5259 - val_acc: 0.8127
+Epoch 13/100
+250/250 [==============================] - 277s 1s/step - loss: 0.4401 - acc: 0.8492 - val_loss: 0.4599 - val_acc: 0.8459
+Epoch 14/100
+250/250 [==============================] - 279s 1s/step - loss: 0.3967 - acc: 0.8628 - val_loss: 0.4660 - val_acc: 0.8449
+Epoch 15/100
+250/250 [==============================] - 276s 1s/step - loss: 0.3770 - acc: 0.8716 - val_loss: 0.4494 - val_acc: 0.8371
+Epoch 16/100
+250/250 [==============================] - 277s 1s/step - loss: 0.3418 - acc: 0.8788 - val_loss: 0.4445 - val_acc: 0.8573
+Epoch 17/100
+250/250 [==============================] - 276s 1s/step - loss: 0.3282 - acc: 0.8940 - val_loss: 0.4947 - val_acc: 0.8296
+Epoch 18/100
+250/250 [==============================] - 275s 1s/step - loss: 0.3052 - acc: 0.8924 - val_loss: 0.3886 - val_acc: 0.8780
+Epoch 19/100
+250/250 [==============================] - 268s 1s/step - loss: 0.3275 - acc: 0.8820 - val_loss: 0.3744 - val_acc: 0.8729
+Epoch 20/100
+250/250 [==============================] - 269s 1s/step - loss: 0.2444 - acc: 0.9244 - val_loss: 0.3239 - val_acc: 0.8957
+Epoch 21/100
+250/250 [==============================] - 269s 1s/step - loss: 0.2481 - acc: 0.9192 - val_loss: 0.3936 - val_acc: 0.8755
+Epoch 22/100
+250/250 [==============================] - 267s 1s/step - loss: 0.2336 - acc: 0.9200 - val_loss: 0.3162 - val_acc: 0.8971
+Epoch 23/100
+250/250 [==============================] - 268s 1s/step - loss: 0.2508 - acc: 0.9156 - val_loss: 0.3385 - val_acc: 0.8880
+Epoch 24/100
+250/250 [==============================] - 268s 1s/step - loss: 0.2379 - acc: 0.9132 - val_loss: 0.3593 - val_acc: 0.8835
+Epoch 25/100
+250/250 [==============================] - 269s 1s/step - loss: 0.2317 - acc: 0.9200 - val_loss: 0.3013 - val_acc: 0.9027
+Epoch 26/100
+250/250 [==============================] - 268s 1s/step - loss: 0.1956 - acc: 0.9392 - val_loss: 0.3122 - val_acc: 0.8969
+Epoch 27/100
+250/250 [==============================] - 268s 1s/step - loss: 0.2173 - acc: 0.9324 - val_loss: 0.3344 - val_acc: 0.8963
+Epoch 28/100
+250/250 [==============================] - 268s 1s/step - loss: 0.2115 - acc: 0.9252 - val_loss: 0.2753 - val_acc: 0.9163
+Epoch 29/100
+250/250 [==============================] - 10755s 43s/step - loss: 0.1898 - acc: 0.9376 - val_loss: 0.3116 - val_acc: 0.9051
+Epoch 30/100
+250/250 [==============================] - 268s 1s/step - loss: 0.1732 - acc: 0.9392 - val_loss: 0.2814 - val_acc: 0.9149
+Epoch 31/100
+250/250 [==============================] - 266s 1s/step - loss: 0.1870 - acc: 0.9356 - val_loss: 0.3648 - val_acc: 0.9006
+The final accuracy of the model against validtion set:  90.06122350692749 %
+--Return--
+
