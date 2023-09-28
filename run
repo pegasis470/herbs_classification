@@ -1,4 +1,4 @@
 #!/usr/bin/bash
-python3 -m pdb Herbs_classification.py >&1 | tee Model_training_logs.log
-python3 validate_model.py >&1 | tee Model_validation_logs.log
+python3 -m pdb Model_genration.py >&1 | tee Model_training_logs.log
+python3 validate.py >&1 | tee Model_validation_logs.log
 python3 app.py
