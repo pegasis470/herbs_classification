@@ -7,7 +7,6 @@ import numpy as np
 import pdb
 import preprocessing as pr
 import matplotlib.pyplot as plt
-import sys
 
 tf.keras.backend.clear_session()
 folders=['Sirih', 'Nangka', 'Belimbing Wuluh', 'Kemangi', 'Jeruk Nipis', 'Jambu Biji', 'Seledri', 'Lidah Buaya', 'Pandan', 'Pepaya']
@@ -80,5 +79,7 @@ callback = tf.keras.callbacks.EarlyStopping(monitor='val_acc', patience=3)
 history=model.fit(training_set, validation_data = validation_set, epochs = 10 ,steps_per_epoch=250 ,callbacks=[callback])
 print('The final accuracy of the model against validtion set: ',history.history['val_acc'][-1]*100,'%')
 plot(history)
-model.save(f'{sys.argv[0]}.keras')
+for layer in model.layers:
+    layer.trainable = False
+model.save(f'Model.keras')
 pdb.set_trace()
