@@ -38,7 +38,7 @@ def Predict(image_path):
     'Screwpine',
     'Papaya'
 ]
-    model=keras.models.load_model("working.keras")
+    model=keras.models.load_model("Model.keras")
     img=image.load_img(image_path,target_size=(250,250,3))
     img=image.img_to_array(img)
     test_image = np.expand_dims(img, axis = 0)
