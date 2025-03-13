@@ -7,6 +7,5 @@ WARNING:absl:Skipping variable loading for optimizer 'Adam', because it has 1 va
 Found 1960 images belonging to 10 classes.
 196/196 [==============================] - 40s 201ms/step - loss: 0.3607 - acc: 0.9005
 Accuracy: 90.05%
-196/196 [==============================] - 47s 238ms/step
-Accuracy: 9.29%
+
 
